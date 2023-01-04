@@ -1,0 +1,22 @@
+<div class="header">
+    <div class="header-name">
+        <span>L</span>
+        <span>e</span>
+        <span>o</span>
+        <span>n</span>
+    </div>
+    <div class="header-group">
+        <div>
+            <a (click)="select('aboutMe')" href="#">About me</a>
+            <div class="header-underline" [class.border-red]="aboutMe"></div>
+        </div>
+        <div>
+            <a (click)="select('skills')" href="#">Skills</a>
+            <div class="header-underline" [class.border-red]="skills"></div>
+        </div>
+        <div>
+            <a (click)="select('portfolio')" href="#">Portfolio</a>
+            <div class="header-underline" [class.border-red]="portfolio"></div>
+        </div>
+    </div>
+</div>
