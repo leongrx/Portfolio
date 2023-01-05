@@ -1,7 +1,6 @@
 .introduction {
   display: flex;
-  position: absolute;
-  top: 109.3px;
+  margin-top: 109.3px;
 }
 
 .introduction-left {
@@ -11,19 +10,48 @@
 
 .introduction-right {
   display: flex;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
   white-space: nowrap;
+  gap: 2.9vw;
+
+  button {
+    font-size: 1.5vw;
+    background-color: #fa7902;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    align-self: center;
+    padding: 15px 30px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: all 150ms ease-out;
+    z-index: 5;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #ff4747;
+      transform: scale(1.15);
+      transform-origin: left, right, bottom;
+    }
+  }
+}
+
+.introduction-right-top {
+  display: flex;
+  gap: 2.3vw;
 }
 
 .shadow-background {
   width: 46vw;
+  z-index: -3;
 }
 
 .profile-picture {
   position: absolute;
   width: 42vw;
+  z-index: -2;
 }
-
 
 .vertical-line {
   display: flex;
@@ -42,17 +70,31 @@
   flex-direction: column;
   text-align: left;
   letter-spacing: 0em;
-  
+  gap: 0.6vw;
+
   h1 {
     font-size: 5.8vw;
     font-weight: 700;
     margin: 0;
   }
-  
+
   h2 {
     font-size: 3.7vw;
-    color: #FF4747;
+    color: #ff4747;
     text-transform: uppercase;
     margin: 0;
+    font-weight: 400;
   }
+}
+
+.introduction-vertical-vector {
+  position: relative;
+  z-index: -1;
+}
+
+.introduction-vertical-vector-picture {
+  position: absolute;
+  margin-top: -300px;
+  width: 100vw;
+  max-width: 100%;
 }
