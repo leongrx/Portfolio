@@ -1,21 +1,21 @@
 <div class="header">
     <div class="header-name">
-        <a href="#">L</a>
-        <a href="#">e</a>
-        <a href="#">o</a>
-        <a href="#">n</a>
+        <a href="#" (click)="resetSelect()">L</a>
+        <a href="#" (click)="resetSelect()">e</a>
+        <a href="#" (click)="resetSelect()">o</a>
+        <a href="#" (click)="resetSelect()">n</a>
     </div>
     <div class="header-group">
         <div>
-            <a (click)="select('aboutMe')" href="#">About me</a>
+            <a (click)="select('aboutMe'); "  href="#about-me">About me</a>
             <div class="header-underline" [class.border-red]="aboutMe"></div>
         </div>
         <div>
-            <a (click)="select('skills')" href="#">Skills</a>
+            <a (click)="select('skills'); "  href="#">Skills</a>
             <div class="header-underline" [class.border-red]="skills"></div>
         </div>
         <div>
-            <a (click)="select('portfolio')" href="#">Portfolio</a>
+            <a (click)="select('portfolio'); "  href="#">Portfolio</a>
             <div class="header-underline" [class.border-red]="portfolio"></div>
         </div>
     </div>

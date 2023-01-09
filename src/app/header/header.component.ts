@@ -38,7 +38,6 @@ export class HeaderComponent {
         break;
     }
   }
-
   
   public resetSelect() {
     this.aboutMe = false;
