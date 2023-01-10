@@ -24,7 +24,7 @@
   height: 35.03px;
   width: 150px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   
   a {
@@ -45,7 +45,7 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-start;
   padding: 0px;
   gap: 46px;
