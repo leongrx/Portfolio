@@ -1,0 +1,33 @@
+<div class="portfolio" id="portfolio">
+  <div class="portfolio-header">
+    <div class="portfolio-header-group">
+      <div class="portfolio-tiny-border"></div>
+      <h1>Portfolio</h1>
+      <div class="portfolio-big-border"></div>
+    </div>
+    <p class="portfolio-header-text">
+      This page is a sample of my work - please feel free to try them out.
+    </p>
+  </div>
+    <!-- ======================================== -->
+  <div class="portfolio-projects-container" *ngFor="let item of data; let i = index">
+    <div class="portfolio-project flex">
+        <div class="portfolio-project-image">
+            <img src="{{item.image.join}}">
+        </div>
+        <div class="portfolio-project-introduction">
+            <h1>{{item.project.join}}</h1>
+            <span>{{item.programming.join.angular}} | </span>
+            <span>{{item.programming.join.typescript}} | </span>
+            <span>{{item.programming.join.html}} | </span>
+            <span>{{item.programming.join.css}} | </span>
+            <span>{{item.programming.join.firebase}}</span>
+            <p>{{item.projecttext.join}}</p>
+            <div>
+                <a target="_blank" href="{{item.livetest.join}}">Live Test</a>
+                <a target="_blank" href="{{item.github.join}}">Github</a>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
