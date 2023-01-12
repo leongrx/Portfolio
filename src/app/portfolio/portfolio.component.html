@@ -10,22 +10,18 @@
     </p>
   </div>
     <!-- ======================================== -->
-  <div class="portfolio-projects-container" *ngFor="let item of data; let i = index">
-    <div class="portfolio-project flex">
+  <div class="portfolio-projects-container">
+    <div class="portfolio-project flex" *ngFor="let item of data; let i = index">
         <div class="portfolio-project-image">
-            <img src="{{item.image.join}}">
+            <img src="{{item.image}}">
         </div>
         <div class="portfolio-project-introduction">
-            <h1>{{item.project.join}}</h1>
-            <span>{{item.programming.join.angular}} | </span>
-            <span>{{item.programming.join.typescript}} | </span>
-            <span>{{item.programming.join.html}} | </span>
-            <span>{{item.programming.join.css}} | </span>
-            <span>{{item.programming.join.firebase}}</span>
-            <p>{{item.projecttext.join}}</p>
-            <div>
-                <a target="_blank" href="{{item.livetest.join}}">Live Test</a>
-                <a target="_blank" href="{{item.github.join}}">Github</a>
+            <h1>{{item.project}}</h1>
+            <span *ngFor="let test of item.programming">{{test}}</span>
+            <p>{{item.projecttext}}</p>
+            <div class="portfolio-links">
+                <a target="_blank" href="{{item.livetest}}">Live Test</a>
+                <a target="_blank" href="{{item.github}}">Github</a>
             </div>
         </div>
     </div>

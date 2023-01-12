@@ -42,3 +42,41 @@
         background-color: #FF4747;
     }
 }
+
+.portfolio-project-introduction {
+    width: 100%;
+    max-width: 513px;
+    min-width: 350px;
+
+    h1 {
+        color: #FF4747;
+    }
+
+    span {
+        color: #FA7902;
+    }
+}
+
+.portfolio-links {
+    margin-top: 48px;
+
+    a {
+        text-decoration: none;
+        margin-right: 86px;
+        padding: 15px 30px;
+        border-radius: 10px;
+        color: #ffffff;
+        
+        &:nth-of-type(1) {
+            background-color: #FF4747;
+        }
+        
+        &:nth-of-type(2) {
+            border: 1px solid #FA7902;
+        }
+
+        &:hover {
+            background-color: #FA7902;
+        }
+    }
+}
