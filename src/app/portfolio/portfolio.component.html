@@ -11,7 +11,7 @@
   </div>
     <!-- ======================================== -->
   <div class="portfolio-projects-container">
-    <div class="portfolio-project flex" *ngFor="let item of data; let i = index">
+    <div class="portfolio-project flex" *ngFor="let item of data; let i = index; even as isEven; odd as isOdd" [ngClass]="{'odd': isOdd, 'even': isEven}">
         <div class="portfolio-project-image">
             <img src="{{item.image}}">
         </div>
