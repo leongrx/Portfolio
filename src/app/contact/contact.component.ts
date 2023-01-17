@@ -33,7 +33,7 @@ export class ContactComponent {
       method: 'POST',
       body: fd
     })
-    debugger
+    console.log(fd)
     nameField.disabled = false;
     emailField.disabled = false;
     messageField.disabled = false;
