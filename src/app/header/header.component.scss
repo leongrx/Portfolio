@@ -5,14 +5,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #141D2F;
+  border-bottom: 1px solid #141d2f;
   z-index: 2;
 
   width: -webkit-fill-available;
   padding: 0 100px;
   max-width: 100%;
   height: 109.03px;
-  background-color: #141D2F;
+  background-color: #141d2f;
   color: #ffffff;
 }
 
@@ -26,7 +26,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  
+
   a {
     color: #ffffff;
     text-decoration: none;
@@ -68,6 +68,85 @@
   }
 }
 
+.header-group-mobile {
+  display: none;
+  z-index: 5;
+}
+
+.header-group-mobile-btn {
+  display: none;
+}
+
+.header-group-mobile-menu {
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  max-width: 100%;
+  height: 100vh;
+  background-color: #141D2F;
+}
+
+.header-group-mobile-logo {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 109.3px;
+  padding-left: 50px;
+  box-sizing: border-box;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+  a {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  a:nth-of-type(1) {
+    color: #ff4747;
+  }
+  
+  a:nth-of-type(4) {
+    color: #fa7902;
+  }
+
+  img {
+    position: absolute;
+    top: 38.7px;
+    right: 50px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.header-group-mobile-sections {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: calc(100vh - 109.3px);
+  gap: 33px;
+
+  a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 23px;
+
+    &:hover {
+      cursor: pointer;
+      color: #fa7902;
+    }
+  }
+}
+
 .header-underline {
   position: absolute;
   width: 55.5px;
@@ -80,3 +159,32 @@
 .border-red {
   border-color: #ff4747 !important;
 }
+
+@media (max-width: 768px) {
+
+  .header-group {
+    display: none;
+  }
+
+  .mobile-menu, .header-group-mobile-menu {
+    display: none;
+  }
+
+  .header-group-mobile-btn {
+    display: flex;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .header {
+    padding: 0 50px;
+  }
+
+}
+
+.mobile-menu {
+  display: flex;
+}
+

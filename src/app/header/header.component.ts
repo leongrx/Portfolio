@@ -11,13 +11,9 @@ export class HeaderComponent {
   public aboutMe: boolean = false;
   public skills: boolean = false;
   public portfolio: boolean = false;
+  public isClicked: boolean = false;
   
-  constructor(private appComponent: AppComponent) { }
-  
-  // closeImprint() {
-  //   debugger
-  //   this.appComponent['closeImprint']();
-  // }
+  constructor(private appComponent: AppComponent) {}
 
   select(key: string) {
     switch (key) {
@@ -43,6 +39,14 @@ export class HeaderComponent {
     this.aboutMe = false;
     this.skills = false;
     this.portfolio = false;
+  }
+
+  public openMobileMenu() {
+    this.isClicked = true;
+  }
+
+  public closeMobileMenu() {
+    this.isClicked = false;
   }
 
 }

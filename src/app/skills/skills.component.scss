@@ -4,6 +4,7 @@
   align-items: center;
   margin-top: 250px;
   padding-left: 100px;
+  padding-bottom: 200px;
   color: #ffffff;
 }
 
@@ -11,8 +12,8 @@
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  column-gap: 170px;
-  row-gap: 54px;
+  column-gap: 11.07vw;
+  row-gap: clamp(35px, 3.52vw, 3.52vw);
 }
 
 .skill-icons {
@@ -21,6 +22,10 @@
   align-items: center;
   flex-direction: column;
   max-width: 60px;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
 
   img {
     width: auto;
@@ -33,6 +38,11 @@
     font-weight: 700;
   }
 
+  &:hover {
+    animation-name: bounce;
+    -moz-animation-name: bounce;
+  }
+
 }
 
 .skills-orange-shadow {
@@ -40,6 +50,8 @@
   top: 50px;
   left: -100px;
   z-index: -1;
+  width: 27.86vw;
+  height: auto;
 }
 
 .skills-introduction {
@@ -53,7 +65,7 @@
   padding-right: 100px;
 
   h1 {
-    font-size: 5.86vw;
+    font-size: clamp(45px, 5.86vw, 5.86vw);
     font-weight: 700;
     text-align: right;
     margin: 0 0 0 70px;
@@ -74,11 +86,12 @@
     border-radius: 10px;
     color: #ffffff;
     padding: 15px 30px;
-    font-size: 1.5vw;
+    font-size: clamp(18px, 1.5vw, 1.5vw);
     margin-left: auto;
     margin-right: 4vw;
     margin-top: 3.71vw;
     transition: all 150ms ease-out;
+    text-decoration: none;
 
     &:hover {
       cursor: pointer;
@@ -91,8 +104,8 @@
   position: absolute;
   top: 20%;
   right: 0;
-  height: 0.26vw;
-  width: 3.77vw;
+  height: clamp(2.5px, 0.26vw, 0.26vw);
+  width: clamp(35px, 3.77vw, 3.77vw);
   background-color: #ff4747;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -110,4 +123,78 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+@keyframes bounce {
+	0%, 100%, 20%, 50%, 80% {
+		-webkit-transform: translateY(0);
+		-ms-transform:     translateY(0);
+		transform:         translateY(0)
+	}
+	40% {
+		-webkit-transform: translateY(-30px);
+		-ms-transform:     translateY(-30px);
+		transform:         translateY(-30px)
+	}
+	60% {
+		-webkit-transform: translateY(-15px);
+		-ms-transform:     translateY(-15px);
+		transform:         translateY(-15px)
+	}
+}
+
+@media (max-width: 1280px) {
+  
+  .skills {
+    position: relative;
+    flex-direction: column-reverse;
+    margin-top: 150px;
+  }
+
+  .skills-introduction {
+    position: unset;
+  }
+
+  .skills-btn {
+    position: absolute;
+    bottom: -100px;
+    margin: unset;
+    z-index: 1;
+  }
+
+  .my-skills {
+    margin-top: 48px;
+    justify-content: center;
+    margin-right: 100px;
+  }
+
+  .skills-border {
+    top: clamp(28px, 3.8vw, 3.8vw);
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  .skills-introduction {
+    min-width: unset;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .skills {
+    padding-left: 50px;
+  }
+
+  .my-skills {
+    margin-right: 50px;
+  }
+
+  .skills-introduction {
+    padding-right: 50px;
+    h1 {
+      margin: 0;
+    }
+  }
 }
