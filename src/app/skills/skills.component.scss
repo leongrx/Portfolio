@@ -68,7 +68,7 @@
     font-size: clamp(45px, 5.86vw, 5.86vw);
     font-weight: 700;
     text-align: right;
-    margin: 0 0 0 70px;
+    margin: 0 0 25px 70px;
   }
 
   p {
@@ -102,7 +102,7 @@
 
 .skills-border {
   position: absolute;
-  top: 20%;
+  top: 19%;
   right: 0;
   height: clamp(2.5px, 0.26vw, 0.26vw);
   width: clamp(35px, 3.77vw, 3.77vw);
@@ -149,6 +149,7 @@
     position: relative;
     flex-direction: column-reverse;
     margin-top: 150px;
+    padding-bottom: 250px;
   }
 
   .skills-introduction {
@@ -157,7 +158,7 @@
 
   .skills-btn {
     position: absolute;
-    bottom: -100px;
+    bottom: 150px;
     margin: unset;
     z-index: 1;
   }

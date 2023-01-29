@@ -13,12 +13,12 @@
         <img class="contact-shadow" src="assets/img/Contact-shadow-red.png">
     </div>
     <form autocomplete="off" (submit)="sendMail()" ngNativeValidate class="contact-right" #myForm>
-        <input id="name" required type="text" onfocus="this.placeholder=''" placeholder="Your name" name="name" #nameField>
-        <span class="invalid-name">Your name is requiered</span>
-        <input id="email" required type="email" onfocus="this.placeholder=''" placeholder="Your email" name="email" #emailField>
-        <span class="invalid-email">Your email is requiered</span>
-        <textarea id="message" required type="text" name="message" cols="30" rows="10" onfocus="this.placeholder=''" placeholder="Your message" #messageField></textarea>
-        <span class="invalid-message">Your message is empty</span>
+        <input (click)="displaySpans()" id="name" required type="text" onfocus="this.placeholder=''" placeholder="Your name" name="name" #nameField>
+        <span [class.invalid-name]="spanName">{{ invalidName }}</span>
+        <input (click)="displaySpans()" id="email" required type="email" onfocus="this.placeholder=''" placeholder="Your email" name="email" #emailField>
+        <span [class.invalid-email]="spanEmail">{{ invalidEmail }}</span>
+        <textarea (click)="displaySpans()" id="message" required type="text" name="message" cols="30" rows="10" onfocus="this.placeholder=''" placeholder="Your message" #messageField></textarea>
+        <span [class.invalid-message]="spanMessage">{{ invalidMessage }}</span>
         <button class="contact-right-btn" #sendButton>Send message :)</button>
         <a class="go-up" href="#">
             <img src="assets/img/Go-up-white.png">
@@ -26,3 +26,4 @@
         </a>
     </form>
 </div>
+<div class="mail-toast" [class.mail-toast]="mailSuccess" >{{ toastMessage }}</div>

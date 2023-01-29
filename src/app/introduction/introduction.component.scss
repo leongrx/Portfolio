@@ -64,11 +64,11 @@
 .introduction-right-text {
   color: white;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
   text-align: left;
   letter-spacing: 0em;
-  gap: 0.6vw;
+  gap: clamp(12px, 0.6vw, 0.6vw);
 
   h1 {
     font-size: clamp(32px, 4.9vw, 4.9vw);
@@ -120,25 +120,18 @@
   display: flex;
   align-items: center;
 
-  img {
+  a {
     width: 30px;
     height: 30px;
+    color: #ffffff;
+    font-size: clamp(16px, 1.5vw, 1.5vw);
     margin: 0 21px;
+    text-decoration: none;
     transition: transform 100ms ease-in-out;
 
     &:hover {
-      transform: scale(1.3);
-    }
-  }
-
-  a {
-    color: #ffffff;
-    font-size: clamp(15px, 1.5vw, 1.5vw);
-    margin: 0 21px;
-    text-decoration: none;
-
-    &:hover {
       cursor: pointer;
+      transform: scale(1.2);
     }
   }
 }
@@ -154,7 +147,7 @@
   p {
     writing-mode: vertical-lr;
     color: #ffffff;
-    font-size: clamp(15px, 1.5vw, 1.5vw);
+    font-size: clamp(16px, 1.5vw, 1.5vw);
     margin: 0;
   }
 
@@ -168,14 +161,12 @@
 // ====== MEDIA-QUERY ====== //
 
 @media (max-width: 900px) {
-
   .introduction-vertical-vector-picture {
     margin-bottom: 50px;
   }
 }
 
 @media (max-width: 768px) {
-
   .introduction {
     flex-direction: column;
     margin: 109.3px 50px 0 50px;
@@ -191,11 +182,9 @@
   }
 
   .introduction-links {
-
-    a {
+    a:nth-of-type(4){
       display: none;
     }
-
   }
 
   .introduction-scroll-down {

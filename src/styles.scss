@@ -1,7 +1,12 @@
 body {
     margin: 0;
     background: #141D2F;
-    font-family: 'Poppins';
+	font-family: Poppins;
+}
+
+@font-face {
+	font-family: Poppins;
+	src: url(./assets/fonts/Poppins/Poppins-Regular.ttf);
 }
 
 html {
@@ -31,3 +36,5 @@ html {
 											  #FF4747 0%,
 											  #FA7902 100%);
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
