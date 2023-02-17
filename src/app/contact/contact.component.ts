@@ -1,4 +1,5 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -13,9 +14,6 @@ export class ContactComponent implements OnInit {
   @ViewChild('messageField') messageField!: ElementRef;
   @ViewChild('sendButton') sendButton!: ElementRef;
 
-  public name: boolean = false;
-  public email: boolean = false;
-  public message: boolean = false;
   public mailSuccess: boolean = false;
   public spanName: boolean = true;
   public spanEmail: boolean = true;
@@ -25,12 +23,70 @@ export class ContactComponent implements OnInit {
   public invalidEmail: string = 'Your email is requiered';
   public invalidMessage: string = 'Your message is empty';
 
+  contactForm = new FormGroup({
+    name: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    message: new FormControl('', [Validators.required])
+  })
+
+
   ngOnInit() {}
 
-  async sendMail() {
-    this.ableInput();
+  get name() {
+    return this.contactForm.get('name')
   }
 
+  get email() {
+    return this.contactForm.get('email')
+  }
+
+  get message() {
+    return this.contactForm.get('message')
+  }
+
+  validation() {
+    let nameField = this.nameField.nativeElement;
+    let emailField = this.emailField.nativeElement;
+    let messageField = this.messageField.nativeElement;
+    this.emailValidation(emailField);
+    this.nameValidation(nameField);
+    this.messageValidation(messageField);
+  }
+
+  emailValidation(emailField) {
+    if (emailField.validity.valid) {
+      emailField.classList.add('valid');
+      emailField.classList.remove('invalid');
+    } else if (emailField.value !== '') {
+      emailField.classList.remove('valid');
+      emailField.classList.add('invalid');
+    }
+  }
+  
+  nameValidation(nameField) {
+    if (nameField.validity.valid) {
+      nameField.classList.add('valid');
+      nameField.classList.remove('invalid');
+    } else if (nameField.value !== ''){
+      nameField.classList.remove('valid');
+      nameField.classList.add('invalid');
+    }
+  }
+  
+  messageValidation(messageField) {
+    if (messageField.validity.valid) {
+      messageField.classList.add('valid');
+      messageField.classList.remove('invalid');
+    } else if (messageField.value !== ''){
+      messageField.classList.remove('valid');
+      messageField.classList.add('invalid');
+    }
+  }
+
+  async sendMail() {
+    await this.ableInput();
+  }
+  
   async ableInput() {
     let nameField = this.nameField.nativeElement;
     let emailField = this.emailField.nativeElement;
@@ -43,7 +99,7 @@ export class ContactComponent implements OnInit {
     await this.fetchEmail(nameField, emailField, messageField);
     this.disableInput(nameField, emailField, messageField, sendButton);
   }
-
+  
   async fetchEmail(nameField, emailField, messageField) {
     let fd = new FormData();
     fd.append('name', nameField.value);
@@ -55,11 +111,10 @@ export class ContactComponent implements OnInit {
         method: 'POST',
         body: fd,
       }
-    );
-    this.displayToast();
-    this.disableSpans();
-  }
-
+      );
+      this.displayToast();
+    }
+    
   disableInput(nameField, emailField, messageField, sendButton) {
     nameField.disabled = false;
     emailField.disabled = false;
@@ -67,13 +122,20 @@ export class ContactComponent implements OnInit {
     sendButton.disabled = false;
     this.resetInput(nameField, emailField, messageField);
   }
-
+  
   resetInput(nameField, emailField, messageField) {
     nameField.value = '';
     emailField.value = '';
     messageField.value = '';
+    this.removeValid(nameField, emailField, messageField);
   }
-
+  
+  removeValid(nameField, emailField, messageField) {
+    nameField.classList.remove('valid');
+    messageField.classList.remove('valid');
+    emailField.classList.remove('valid');
+  }
+  
   displayToast() {
     this.mailSuccess = true;
     this.toastMessage = 'Successfully :)';
@@ -82,24 +144,5 @@ export class ContactComponent implements OnInit {
       this.toastMessage = '';
     }, 3000);
   }
-
-  disableSpans() {
-    this.spanName = false;
-    this.spanEmail = false;
-    this.spanMessage = false;
-    this.invalidName = '';
-    this.invalidEmail = '';
-    this.invalidMessage = '';
-  }
-
-  displaySpans() {
-    this.spanName = true;
-    this.spanEmail = true;
-    this.spanMessage = true;
-    this.invalidName = 'Your name is requiered';
-    this.invalidEmail = 'Your email is requiered';
-    this.invalidMessage = 'Your message is empty';
-  }
-
 
 }

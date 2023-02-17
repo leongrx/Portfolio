@@ -1,4 +1,4 @@
-import { Component, Injectable, Input } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 
 @Injectable()
@@ -7,14 +7,25 @@ import { AppComponent } from '../app.component';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
   public aboutMe: boolean = false;
   public skills: boolean = false;
   public portfolio: boolean = false;
   public isClicked: boolean = false;
+  public mobile: boolean = false;
   
   constructor(private appComponent: AppComponent) {}
 
+  ngOnInit(): void {
+}
+
+checkMobile() {
+  if (document.body.clientWidth <= 768) {
+    this.mobile = true;
+  } else {
+    this.mobile = false;
+  }
+}
   select(key: string) {
     switch (key) {
       case 'aboutMe':

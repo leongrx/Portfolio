@@ -22,7 +22,7 @@
   <div (click)="openMobileMenu()" class="header-group-mobile-btn">
     <img src="assets/img/Burger.png" />
   </div>
-  <div class="header-group-mobile-menu" [class.mobile-menu]="isClicked">
+  <div *ngIf="mobile" class="header-group-mobile-menu" [class.mobile-menu]="isClicked">
     <div class="header-group-mobile-logo">
       <a (click)="closeMobileMenu()" href="#">L</a>
       <a (click)="closeMobileMenu()" href="#">e</a>
